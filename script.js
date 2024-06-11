@@ -14,6 +14,14 @@ const collectEmployees = function() {
   //Get Employee Salary
   var inputSalary = prompt("Please enter Employee's salary");
 
+  //If the inputted salary
+  if(isNaN(inputSalary)){
+    inputSalary = 0;
+  }
+  else{
+    inputSalary = Number(inputSalary)
+  }
+
   //Create an Employee object with all the information
   let employees = {
     firstName: inputFirstName,
@@ -32,6 +40,13 @@ const collectEmployees = function() {
     inputFirstName = prompt("Please enter Employee's first name");
     inputLastName = prompt("Please enter Employee's last name");
     inputSalary = prompt("Please enter Employee's salary");
+
+    if(isNaN(inputSalary)){
+      inputSalary = 0;
+    }
+    else{
+      inputSalary = Number(inputSalary)
+    }
 
     employees = {
       firstName: inputFirstName,
@@ -73,7 +88,10 @@ const displayAverageSalary = function(employeesArray) {
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-  var randInt = Math.floor(Math.random() * 3);
+  var randInt = Math.floor(Math.random() * employeesArray.length);
+  const chosenEmployee = employeesArray[randInt];
+
+  console.log(`Congratulations to ${chosenEmployee.firstName} ${chosenEmployee.lastName}, our random drawing winner`);
 }
 
 /*
